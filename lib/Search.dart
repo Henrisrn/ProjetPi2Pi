@@ -9,18 +9,18 @@ import 'package:projetpix/Guest.dart';
 import 'package:projetpix/Profil.dart';
 import 'package:projetpix/Search.dart';
 
-class Home extends StatefulWidget {
+class Search extends StatefulWidget {
   final Function(int, List<String>) onChangedStep;
-
-  const Home({
+  const Search({
     Key? key,
     required this.onChangedStep,
   }) : super(key: key);
+
   @override
-  State<Home> createState() => _HomeState();
+  State<Search> createState() => _SearchState();
 }
 
-class _HomeState extends State<Home> {
+class _SearchState extends State<Search> {
   int _selectedIndex = 0;
   int index = 0;
 
@@ -77,7 +77,7 @@ class _HomeState extends State<Home> {
                 padding: EdgeInsets.symmetric(horizontal: 30),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [Center(child: Text("Page Home"))],
+                  children: [Center(child: Text("Page Search"))],
                 ),
               ));
             })));

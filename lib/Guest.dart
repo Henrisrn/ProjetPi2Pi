@@ -1,12 +1,18 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:projetpix/Camera.dart';
 import 'package:projetpix/DBConnection.dart';
 import 'package:projetpix/Home.dart';
+import 'package:projetpix/PartieFinie.dart';
+import 'package:projetpix/Profil.dart';
+import 'package:projetpix/Search.dart';
 
 class Guest extends StatefulWidget {
-  Guest({Key? key});
+  final List<CameraDescription> cameraa;
+  Guest({Key? key, required this.cameraa});
   int compteur = 0;
 
   @override
@@ -24,14 +30,52 @@ class _GuestState extends State<Guest> {
     "Quipourrait",
     "Cap"
   ];
+  String sortie = "";
+  List<String> joueur = [];
+  String answer = "";
+  bool Partiefinie(List<List<String>> lis) {
+    bool res = false;
+    for (List<String> i in lis) {
+      if (i.length == 0) {
+        res = true;
+      }
+    }
+    return res;
+  }
+
+  List<String> questiondejafaite = [];
   void initState() {
     // ignore: todo
     // TODO: implement initState
     super.initState();
+
     DBConnection coll = new DBConnection(collec);
     coll.dbconnect.then(((question) => setState(() {
           print(question);
-          _widget.addAll([Home()]);
+          _widget.addAll([
+            Partiefinie(question)
+                ? PartieFinie()
+                : Home(
+                    onChangedStep: (indexx, value) => setState(() {
+                          index = indexx;
+                          for (String i in value) {
+                            joueur.add((i + "  "));
+                          }
+                        })),
+            Search(
+                onChangedStep: (indexx, value) => setState(() {
+                      index = indexx;
+                    })),
+            Camera(
+                cameraaa: widget.cameraa,
+                onChangedStep: (indexx, value) => setState(() {
+                      index = indexx;
+                    })),
+            Profile(
+                onChangedStep: (indexx, value) => setState(() {
+                      index = indexx;
+                    })),
+          ]);
         })));
   }
 

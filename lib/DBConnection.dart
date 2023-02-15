@@ -9,8 +9,8 @@ class DBConnection {
     aa = a;
   }
   Future<List<List<String>>> get dbconnect async {
-    var db = await Db.create(
-        "mongodb+srv://test2:test2@cluster0.pfcsyrs.mongodb.net/Phraseapplication?retryWrites=true&w=majority");
+    /*var db = await Db.create(
+        "mongodb+srv://test:test@cluster0.pfcsyrs.mongodb.net/Phraseapplication?retryWrites=true&w=majority");
 
     await db.open();
     inspect(db);
@@ -51,6 +51,8 @@ class DBConnection {
     // or Standard way
     await db.close();
     ba = res;
+    return res;*/
+    List<List<String>> res = [];
     return res;
   }
 }

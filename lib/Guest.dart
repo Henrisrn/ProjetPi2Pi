@@ -4,10 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:projetpix/Camera.dart';
+import 'package:projetpix/Chapitre.dart';
 import 'package:projetpix/DBConnection.dart';
 import 'package:projetpix/Home.dart';
 import 'package:projetpix/PartieFinie.dart';
+import 'package:projetpix/Premium.dart';
 import 'package:projetpix/Profil.dart';
+import 'package:projetpix/Reglage.dart';
 import 'package:projetpix/Search.dart';
 
 class Guest extends StatefulWidget {
@@ -75,6 +78,14 @@ class _GuestState extends State<Guest> {
                 onChangedStep: (indexx, value) => setState(() {
                       index = indexx;
                     })),
+            Reglage(
+                onChangedStep: (indexx, value) => setState(() {
+                      index = indexx;
+                    })),
+            Premium(
+                onChangedStep: (indexx, value) => setState(() {
+                      index = indexx;
+                    }))
           ]);
         })));
   }

@@ -23,7 +23,7 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   int _selectedIndex = 0;
   int index = 0;
-
+  double padingvideo = 13;
   void _onItemTapped(int index) {
     setState(() => {
           _selectedIndex = index,
@@ -37,11 +37,28 @@ class _ProfileState extends State<Profile> {
         child: Scaffold(
             backgroundColor: Colors.grey[700],
             appBar: AppBar(
+              title: Text('Mon Profil'),
+              actions: <Widget>[
+                IconButton(
+                  icon: Icon(Icons.settings),
+                  tooltip: 'Réglages',
+                  onPressed: () => {
+                    widget.onChangedStep(4, [""])
+                  },
+                ),
+                IconButton(
+                  icon: Icon(Icons.star_border),
+                  tooltip: 'Devenir Premium',
+                  onPressed: () => {
+                    widget.onChangedStep(5, [""])
+                  },
+                ),
+              ],
               backgroundColor: Colors.grey[700],
               elevation: 0,
             ),
             bottomNavigationBar: BottomNavigationBar(
-              backgroundColor: Colors.grey[500],
+              backgroundColor: Colors.grey[200],
               items: <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
                   backgroundColor: Colors.grey[700],
@@ -72,14 +89,76 @@ class _ProfileState extends State<Profile> {
             ),
             body: OrientationBuilder(
                 builder: (BuildContext context, Orientation orientation) {
-              return Center(
-                  child: SingleChildScrollView(
-                padding: EdgeInsets.symmetric(horizontal: 30),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [Center(child: Text("Page Profil"))],
-                ),
-              ));
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.all(16),
+                    child: Text(
+                      'Mon Pseudo',
+                      style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(16),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          'Points : 3035',
+                          style: TextStyle(fontSize: 18, color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Expanded(
+                    child: ListView(
+                      padding: EdgeInsets.all(6),
+                      children: <Widget>[
+                        _buildVideoListItem(
+                            'Nom de la vidéo 1', 'assets/images/Video1.jpg'),
+                        SizedBox(
+                          height: padingvideo,
+                        ),
+                        _buildVideoListItem(
+                            'Nom de la vidéo 2', 'assets/images/Video2.jpg'),
+                        SizedBox(
+                          height: padingvideo,
+                        ),
+                        _buildVideoListItem(
+                            'Nom de la vidéo 3', 'assets/images/Video3.jpg'),
+                        SizedBox(
+                          height: padingvideo,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              );
             })));
   }
+}
+
+Widget _buildVideoListItem(String title, String imagePath) {
+  return ListTile(
+    leading: Image.asset(
+      width: 100, // Définir la largeur de l'image
+      height: 100, // Définir la hauteur de l'image
+      fit: BoxFit.cover, // Redimensionner l'image pour remplir le conteneur
+      imagePath,
+    ),
+    title: Text(
+      style: TextStyle(fontSize: 16, color: Colors.white),
+      title,
+    ),
+    onTap: () {
+      // TODO: Navigate to video detail page
+    },
+  );
 }

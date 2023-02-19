@@ -114,10 +114,16 @@ class _PremiumState extends State<Premium> {
           ),
           SizedBox(height: 20),
           ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.grey[100],
+            ),
             onPressed: () {
               // TODO: Implement payment gateway.
             },
-            child: Text('Subscribe Now'),
+            child: Text(
+              'Subscribe Now',
+              style: TextStyle(color: Colors.black),
+            ),
           ),
         ],
       ),

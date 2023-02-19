@@ -6,6 +6,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:projetpix/Camera.dart';
 import 'package:projetpix/Guest.dart';
+import 'package:projetpix/Lecteurvideo.dart';
 import 'package:projetpix/Profil.dart';
 import 'package:projetpix/Search.dart';
 
@@ -121,18 +122,235 @@ class _ProfileState extends State<Profile> {
                     child: ListView(
                       padding: EdgeInsets.all(6),
                       children: <Widget>[
-                        _buildVideoListItem(
-                            'Nom de la vidéo 1', 'assets/images/Video1.jpg'),
+                        ListTile(
+                            leading: Image.asset(
+                              width: 100, // Définir la largeur de l'image
+                              height: 100, // Définir la hauteur de l'image
+                              fit: BoxFit
+                                  .cover, // Redimensionner l'image pour remplir le conteneur
+                              'assets/images/Video1.jpg',
+                            ),
+                            title: Text(
+                              style:
+                                  TextStyle(fontSize: 16, color: Colors.white),
+                              'Nom de la vidéo 1',
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => VideoPlayerPage(
+                                          pathvideo: 'assets/videos/Video1.mp4',
+                                        )),
+                              );
+                            }),
                         SizedBox(
                           height: padingvideo,
                         ),
-                        _buildVideoListItem(
-                            'Nom de la vidéo 2', 'assets/images/Video2.jpg'),
+                        ListTile(
+                          leading: Image.asset(
+                            width: 100, // Définir la largeur de l'image
+                            height: 100, // Définir la hauteur de l'image
+                            fit: BoxFit
+                                .cover, // Redimensionner l'image pour remplir le conteneur
+                            'assets/images/Video2.jpg',
+                          ),
+                          title: Text(
+                            style: TextStyle(fontSize: 16, color: Colors.white),
+                            'Nom de la vidéo 1',
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => VideoPlayerPage(
+                                        pathvideo: 'assets/videos/Video2.mp4',
+                                      )),
+                            );
+                            // TODO: Navigate to video detail page
+                          },
+                        ),
                         SizedBox(
                           height: padingvideo,
                         ),
-                        _buildVideoListItem(
-                            'Nom de la vidéo 3', 'assets/images/Video3.jpg'),
+                        ListTile(
+                          leading: Image.asset(
+                            width: 100, // Définir la largeur de l'image
+                            height: 100, // Définir la hauteur de l'image
+                            fit: BoxFit
+                                .cover, // Redimensionner l'image pour remplir le conteneur
+                            'assets/images/Video3.jpg',
+                          ),
+                          title: Text(
+                            style: TextStyle(fontSize: 16, color: Colors.white),
+                            'Nom de la vidéo 1',
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => VideoPlayerPage(
+                                        pathvideo: 'assets/videos/Video3.mp4',
+                                      )),
+                            );
+                          },
+                        ),
+                        SizedBox(
+                          height: padingvideo,
+                        ),
+                        ListTile(
+                          leading: Image.asset(
+                            width: 100, // Définir la largeur de l'image
+                            height: 100, // Définir la hauteur de l'image
+                            fit: BoxFit
+                                .cover, // Redimensionner l'image pour remplir le conteneur
+                            'assets/images/Video2.jpg',
+                          ),
+                          title: Text(
+                            style: TextStyle(fontSize: 16, color: Colors.white),
+                            'Nom de la vidéo 1',
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => VideoPlayerPage(
+                                        pathvideo: 'assets/videos/Video4.mp4',
+                                      )),
+                            );
+                            // TODO: Navigate to video detail page
+                          },
+                        ),
+                        SizedBox(
+                          height: padingvideo,
+                        ),
+                        ListTile(
+                          leading: Image.asset(
+                            width: 100, // Définir la largeur de l'image
+                            height: 100, // Définir la hauteur de l'image
+                            fit: BoxFit
+                                .cover, // Redimensionner l'image pour remplir le conteneur
+                            'assets/images/Video2.jpg',
+                          ),
+                          title: Text(
+                            style: TextStyle(fontSize: 16, color: Colors.white),
+                            'Nom de la vidéo 1',
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => VideoPlayerPage(
+                                        pathvideo: 'assets/videos/Video5.mp4',
+                                      )),
+                            );
+                            // TODO: Navigate to video detail page
+                          },
+                        ),
+                        SizedBox(
+                          height: padingvideo,
+                        ),
+                        ListTile(
+                          leading: Image.asset(
+                            width: 100, // Définir la largeur de l'image
+                            height: 100, // Définir la hauteur de l'image
+                            fit: BoxFit
+                                .cover, // Redimensionner l'image pour remplir le conteneur
+                            'assets/images/Video2.jpg',
+                          ),
+                          title: Text(
+                            style: TextStyle(fontSize: 16, color: Colors.white),
+                            'Nom de la vidéo 1',
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => VideoPlayerPage(
+                                        pathvideo: 'assets/videos/Video6.mp4',
+                                      )),
+                            );
+                            // TODO: Navigate to video detail page
+                          },
+                        ),
+                        SizedBox(
+                          height: padingvideo,
+                        ),
+                        ListTile(
+                          leading: Image.asset(
+                            width: 100, // Définir la largeur de l'image
+                            height: 100, // Définir la hauteur de l'image
+                            fit: BoxFit
+                                .cover, // Redimensionner l'image pour remplir le conteneur
+                            'assets/images/Video2.jpg',
+                          ),
+                          title: Text(
+                            style: TextStyle(fontSize: 16, color: Colors.white),
+                            'Nom de la vidéo 1',
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => VideoPlayerPage(
+                                        pathvideo: 'assets/videos/Video7.mp4',
+                                      )),
+                            );
+                            // TODO: Navigate to video detail page
+                          },
+                        ),
+                        SizedBox(
+                          height: padingvideo,
+                        ),
+                        ListTile(
+                          leading: Image.asset(
+                            width: 100, // Définir la largeur de l'image
+                            height: 100, // Définir la hauteur de l'image
+                            fit: BoxFit
+                                .cover, // Redimensionner l'image pour remplir le conteneur
+                            'assets/images/Video2.jpg',
+                          ),
+                          title: Text(
+                            style: TextStyle(fontSize: 16, color: Colors.white),
+                            'Nom de la vidéo 1',
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => VideoPlayerPage(
+                                        pathvideo: 'assets/videos/Video8.mp4',
+                                      )),
+                            );
+                            // TODO: Navigate to video detail page
+                          },
+                        ),
+                        SizedBox(
+                          height: padingvideo,
+                        ),
+                        ListTile(
+                          leading: Image.asset(
+                            width: 100, // Définir la largeur de l'image
+                            height: 100, // Définir la hauteur de l'image
+                            fit: BoxFit
+                                .cover, // Redimensionner l'image pour remplir le conteneur
+                            'assets/images/Video2.jpg',
+                          ),
+                          title: Text(
+                            style: TextStyle(fontSize: 16, color: Colors.white),
+                            'Nom de la vidéo 1',
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => VideoPlayerPage(
+                                        pathvideo: 'assets/videos/Video9.mp4',
+                                      )),
+                            );
+                            // TODO: Navigate to video detail page
+                          },
+                        ),
                         SizedBox(
                           height: padingvideo,
                         ),
@@ -145,7 +363,8 @@ class _ProfileState extends State<Profile> {
   }
 }
 
-Widget _buildVideoListItem(String title, String imagePath) {
+Widget _buildVideoListItem(
+    String title, String imagePath, BuildContext context) {
   return ListTile(
     leading: Image.asset(
       width: 100, // Définir la largeur de l'image

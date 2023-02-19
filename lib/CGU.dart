@@ -28,7 +28,7 @@ class _CGUState extends State<CGU> {
         child: Scaffold(
             backgroundColor: Colors.grey[700],
             appBar: AppBar(
-              title: Text('Mon Profil'),
+              title: Text('CGU'),
               actions: <Widget>[
                 IconButton(
                   icon: Icon(Icons.settings),
@@ -78,7 +78,8 @@ class _CGUState extends State<CGU> {
               currentIndex: _selectedIndex,
               onTap: _onItemTapped,
             ),
-            body: Container(
+            body: SingleChildScrollView(
+                physics: AlwaysScrollableScrollPhysics(),
                 child: Text(
                     """La présente application (ci-après désignée "l'Application") est mise à disposition des utilisateurs (ci-après désignés "l'Utilisateur") par [Nom de la société ou de l'entreprise qui développe l'Application].
 
@@ -123,9 +124,7 @@ En cas de litige relatif à l'interprétation ou à l'exécution des présentes 
 À défaut d'accord amiable, les tribunaux français seront seuls compétents pour connaître de tout litige relatif aux présentes CGU.
 
 Fait à Bougival , le 01/04/2023.
-
-
-
-"""))));
+""",
+                    style: TextStyle(color: Colors.white)))));
   }
 }

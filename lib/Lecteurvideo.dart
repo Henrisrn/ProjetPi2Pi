@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoPlayerPage extends StatefulWidget {
+  String pathvideo;
+  VideoPlayerPage({
+    required this.pathvideo,
+    Key? key,
+  }) : super(key: key);
   @override
   _VideoPlayerPageState createState() => _VideoPlayerPageState();
 }
@@ -16,7 +21,7 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
 
   @override
   void initState() {
-    _controller = VideoPlayerController.asset('assets/videos/Video1.mp4');
+    _controller = VideoPlayerController.asset(widget.pathvideo);
     _initializeVideoPlayerFuture = _controller?.initialize();
     _controller?.addListener(() {
       if (_controller!.value.position >= _controller!.value.duration) {
@@ -51,7 +56,21 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
 
   @override
   Widget build(BuildContext context) {
+    int _selectedIndex = 0;
+    print("Ce que je reçois : " + widget.pathvideo);
+    int index = 0;
+    double padingvideo = 13;
+    void _onItemTapped(int index) {
+      setState(() => {
+            _selectedIndex = index,
+          });
+    }
+
     return Scaffold(
+      backgroundColor: Colors.grey[700],
+      appBar: AppBar(
+        backgroundColor: Colors.grey[700],
+      ),
       body: SafeArea(
         child: GestureDetector(
           onTap: () {

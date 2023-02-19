@@ -26,6 +26,7 @@ class _ReglageState extends State<Reglage> {
 
   bool _enableNotifications = true;
   bool _enableDarkMode = false;
+  String langue = "English";
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -90,22 +91,29 @@ class _ReglageState extends State<Reglage> {
           ),
           ListTile(
             title: Text('Language', style: TextStyle(color: Colors.white)),
-            subtitle: Text('English', style: TextStyle(color: Colors.white)),
+            subtitle: Text(langue, style: TextStyle(color: Colors.white)),
             onTap: () {
+              setState(() {
+                if (langue == "Français") {
+                  langue = "English";
+                } else {
+                  langue = "Français";
+                }
+              });
               // TODO: Implement language settings.
             },
           ),
           ListTile(
             title: Text('About', style: TextStyle(color: Colors.white)),
             onTap: () {
-              // TODO: Implement about page.
+              widget.onChangedStep(7, [""]);
             },
           ),
           ListTile(
             title:
                 Text('Terms of Service', style: TextStyle(color: Colors.white)),
             onTap: () {
-              // TODO: Implement terms of service page.
+              widget.onChangedStep(8, [""]);
             },
           ),
           ListTile(

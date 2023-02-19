@@ -3,7 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:projetpix/CGU.dart';
 import 'package:projetpix/Camera.dart';
+import 'package:projetpix/Camera2.dart';
 import 'package:projetpix/Chapitre.dart';
 import 'package:projetpix/DBConnection.dart';
 import 'package:projetpix/Home.dart';
@@ -14,8 +16,7 @@ import 'package:projetpix/Reglage.dart';
 import 'package:projetpix/Search.dart';
 
 class Guest extends StatefulWidget {
-  final List<CameraDescription> cameraa;
-  Guest({Key? key, required this.cameraa});
+  Guest({Key? key});
   int compteur = 0;
 
   @override
@@ -69,8 +70,7 @@ class _GuestState extends State<Guest> {
                 onChangedStep: (indexx, value) => setState(() {
                       index = indexx;
                     })),
-            Camera(
-                cameraaa: widget.cameraa,
+            TakeVideoPage(
                 onChangedStep: (indexx, value) => setState(() {
                       index = indexx;
                     })),
@@ -85,7 +85,11 @@ class _GuestState extends State<Guest> {
             Premium(
                 onChangedStep: (indexx, value) => setState(() {
                       index = indexx;
-                    }))
+                    })),
+            CGU(
+                onChangedStep: (indexx, value) => setState(() {
+                      index = indexx;
+                    })),
           ]);
         })));
   }

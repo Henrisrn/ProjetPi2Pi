@@ -3,6 +3,9 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:projetpix/Guest.dart';
+import 'package:projetpix/Home.dart';
+import 'package:projetpix/Test.dart';
+import 'package:projetpix/Tiktokpage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,9 +24,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Guest(
-        cameraa: cameras,
-      ),
+      home: Guest(),
     );
   }
 }

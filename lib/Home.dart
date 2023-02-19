@@ -8,6 +8,7 @@ import 'package:projetpix/Camera.dart';
 import 'package:projetpix/Guest.dart';
 import 'package:projetpix/Profil.dart';
 import 'package:projetpix/Search.dart';
+import 'package:projetpix/Tiktokpage.dart';
 
 class Home extends StatefulWidget {
   final Function(int, List<String>) onChangedStep;
@@ -33,45 +34,44 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Scaffold(
-      backgroundColor: Colors.grey[700],
-      appBar: AppBar(
+      child: Scaffold(
         backgroundColor: Colors.grey[700],
-        elevation: 0,
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.grey[500],
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            backgroundColor: Colors.grey[700],
-            icon: Icon(
-              Icons.home,
+        appBar: AppBar(
+          backgroundColor: Colors.grey[700],
+          elevation: 0,
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.grey[500],
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              backgroundColor: Colors.grey[700],
+              icon: Icon(
+                Icons.home,
+              ),
+              label: "Home",
             ),
-            label: "Home",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.search,
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.search,
+              ),
+              label: 'Search',
             ),
-            label: 'Search',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.camera),
-            label: 'Camera',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.person,
+            BottomNavigationBarItem(
+              icon: Icon(Icons.camera),
+              label: 'Camera',
             ),
-            label: 'Profile',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        onTap: _onItemTappedd,
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.person,
+              ),
+              label: 'Profile',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          onTap: _onItemTappedd,
+        ),
+        body: TikTokClonePage(),
       ),
-      body: Center(
-        child: Text("Hello World"),
-      ),
-    ));
+    );
   }
 }

@@ -112,6 +112,7 @@ class _ReglageState extends State<Reglage> {
             title:
                 Text('Privacy Policy', style: TextStyle(color: Colors.white)),
             onTap: () {
+              widget.onChangedStep(6, [""]);
               // TODO: Implement privacy policy page.
             },
           ),

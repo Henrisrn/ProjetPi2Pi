@@ -1,8 +1,7 @@
-import 'dart:math';
+/*import 'dart:math';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:ui';
-import 'package:camera/camera.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
@@ -249,3 +248,4 @@ class _CameraState extends State<Camera> {
             )));
   }
 }
+*/

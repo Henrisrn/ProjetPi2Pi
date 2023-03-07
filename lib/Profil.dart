@@ -204,7 +204,7 @@ class _ProfileState extends State<Profile> {
                             height: 100, // Définir la hauteur de l'image
                             fit: BoxFit
                                 .cover, // Redimensionner l'image pour remplir le conteneur
-                            'assets/images/Video2.jpg',
+                            'assets/images/Video4.jpg',
                           ),
                           title: Text(
                             style: TextStyle(fontSize: 16, color: Colors.white),
@@ -230,7 +230,7 @@ class _ProfileState extends State<Profile> {
                             height: 100, // Définir la hauteur de l'image
                             fit: BoxFit
                                 .cover, // Redimensionner l'image pour remplir le conteneur
-                            'assets/images/Video2.jpg',
+                            'assets/images/Video5.jpg',
                           ),
                           title: Text(
                             style: TextStyle(fontSize: 16, color: Colors.white),
@@ -256,7 +256,7 @@ class _ProfileState extends State<Profile> {
                             height: 100, // Définir la hauteur de l'image
                             fit: BoxFit
                                 .cover, // Redimensionner l'image pour remplir le conteneur
-                            'assets/images/Video2.jpg',
+                            'assets/images/Video6.jpg',
                           ),
                           title: Text(
                             style: TextStyle(fontSize: 16, color: Colors.white),
@@ -282,7 +282,7 @@ class _ProfileState extends State<Profile> {
                             height: 100, // Définir la hauteur de l'image
                             fit: BoxFit
                                 .cover, // Redimensionner l'image pour remplir le conteneur
-                            'assets/images/Video2.jpg',
+                            'assets/images/Video7.jpg',
                           ),
                           title: Text(
                             style: TextStyle(fontSize: 16, color: Colors.white),
@@ -308,7 +308,7 @@ class _ProfileState extends State<Profile> {
                             height: 100, // Définir la hauteur de l'image
                             fit: BoxFit
                                 .cover, // Redimensionner l'image pour remplir le conteneur
-                            'assets/images/Video2.jpg',
+                            'assets/images/Video8.jpg',
                           ),
                           title: Text(
                             style: TextStyle(fontSize: 16, color: Colors.white),
@@ -334,7 +334,7 @@ class _ProfileState extends State<Profile> {
                             height: 100, // Définir la hauteur de l'image
                             fit: BoxFit
                                 .cover, // Redimensionner l'image pour remplir le conteneur
-                            'assets/images/Video2.jpg',
+                            'assets/images/Video8.jpg',
                           ),
                           title: Text(
                             style: TextStyle(fontSize: 16, color: Colors.white),

@@ -10,7 +10,7 @@ class DBConnection {
   }
   Future<List<Map<String, String>>> get dbconnect async {
     var db = await Db.create(
-        "mongodb+srv://test:test@cluster0.pfcsyrs.mongodb.net/LeoSmartAss?retryWrites=true&w=majority");
+        "mongodb+srv://user::mdp@cluster0.pfcsyrs.mongodb.net/LeoSmartAss?retryWrites=true&w=majority");
 
     await db.open();
     inspect(db);

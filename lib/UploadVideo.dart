@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
-import 'package:projetpix/VideoReader.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoUploaderPage extends StatefulWidget {

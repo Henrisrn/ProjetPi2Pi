@@ -152,8 +152,9 @@ class _TikTokClonePageState extends State<TikTokClonePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       IconButton(
+                        iconSize: 70,
                         icon: Icon(Icons.arrow_drop_up,
-                            size: 50, color: Colors.white),
+                            size: 100, color: Colors.transparent),
                         onPressed: () {
                           setState(() {
                             _currentIndex =
@@ -165,8 +166,9 @@ class _TikTokClonePageState extends State<TikTokClonePage> {
                         },
                       ),
                       IconButton(
+                        iconSize: 70,
                         icon: Icon(Icons.arrow_drop_down,
-                            size: 50, color: Colors.white),
+                            size: 100, color: Colors.transparent),
                         onPressed: () {
                           setState(() {
                             _currentIndex =

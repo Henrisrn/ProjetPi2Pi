@@ -7,6 +7,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:projetpix/Camera.dart';
 import 'package:projetpix/Chapitre.dart';
 import 'package:projetpix/Chapter.dart';
+import 'package:projetpix/CoursChapitre.dart';
 import 'package:projetpix/Guest.dart';
 import 'package:projetpix/Profil.dart';
 import 'package:projetpix/Search.dart';
@@ -97,7 +98,7 @@ class _SearchState extends State<Search> {
                 builder: (BuildContext context, Orientation orientation) {
               return Center(
                   child: SingleChildScrollView(
-                padding: EdgeInsets.symmetric(horizontal: 30),
+                padding: EdgeInsets.symmetric(horizontal: 0),
                 child: Column(
                   children: [
                     Text(
@@ -114,7 +115,7 @@ class _SearchState extends State<Search> {
                     Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Container(
-                          height: 50,
+                          height: 70,
                           child: ListView(
                             scrollDirection: Axis.horizontal,
                             children: _subjects.map((subject) {
@@ -157,21 +158,19 @@ class _SearchState extends State<Search> {
                               title: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                     padding: EdgeInsets.all(2),
-                                    primary: Colors.transparent),
-                                onPressed: () => Matiere(
-                                    onChangedStep: (indexx, value) =>
-                                        setState(() {
-                                          index = indexx;
-                                        }),
-                                    chap: _filteredChapters[index]),
+                                    elevation: 0,
+                                    primary: Colors.grey[700]),
+                                onPressed: () {
+                                  widget.onChangedStep(9, [
+                                    _filteredChapters[index].title,
+                                    _filteredChapters[index].subject
+                                  ]);
+                                },
                                 child: Text(
                                   _filteredChapters[index].title,
-                                  style: TextStyle(color: Colors.white),
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 20),
                                 ),
-                              ),
-                              subtitle: Text(
-                                _filteredChapters[index].subject,
-                                style: TextStyle(color: Colors.white),
                               ),
                             );
                           },

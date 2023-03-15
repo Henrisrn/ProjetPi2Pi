@@ -7,10 +7,10 @@ import 'package:projetpix/CGU.dart';
 import 'package:projetpix/Camera.dart';
 import 'package:projetpix/Camera2.dart';
 import 'package:projetpix/Chapitre.dart';
+import 'package:projetpix/CoursChapitre.dart';
 import 'package:projetpix/DBConnection.dart';
 import 'package:projetpix/Home.dart';
 import 'package:projetpix/Lecteurvideo.dart';
-import 'package:projetpix/PartieFinie.dart';
 import 'package:projetpix/Premium.dart';
 import 'package:projetpix/Profil.dart';
 import 'package:projetpix/Reglage.dart';
@@ -30,34 +30,18 @@ class _GuestState extends State<Guest> {
   int index = 0;
   String pathvideoo = "";
   List<String> collec = [
-    "Cestun10mais",
-    "Action",
-    "Verite",
-    "Jenaijamais",
-    "Quipourrait",
-    "Cap"
+    "Cours",
   ];
-  String sortie = "";
-
-  bool Partiefinie(List<List<String>> lis) {
-    bool res = false;
-    for (List<String> i in lis) {
-      if (i.length == 0) {
-        res = true;
-      }
-    }
-    return res;
-  }
-
+  List<String> matiereetcours = [];
   List<String> questiondejafaite = [];
   void initState() {
     // ignore: todo
     // TODO: implement initState
+
     super.initState();
 
     DBConnection coll = new DBConnection(collec);
-    coll.dbconnect.then(((question) => setState(() {
-          print(question);
+    coll.dbconnect.then(((courss) => setState(() {
           _widget.addAll([
             Home(
                 onChangedStep: (indexx, value) => setState(() {
@@ -66,6 +50,9 @@ class _GuestState extends State<Guest> {
             Search(
                 onChangedStep: (indexx, value) => setState(() {
                       index = indexx;
+                      for (String i in value) {
+                        matiereetcours.add((i));
+                      }
                     })),
             TakeVideoPage(
                 onChangedStep: (indexx, value) => setState(() {
@@ -95,7 +82,14 @@ class _GuestState extends State<Guest> {
             Terms(
                 onChangedStep: (indexx, value) => setState(() {
                       index = indexx;
-                    }))
+                    })),
+            CoursChapitre(
+              onChangedStep: (indexx, value) => setState(() {
+                index = indexx;
+              }),
+              cours: matiereetcours,
+              contenuecours: courss,
+            )
           ]);
         })));
   }
@@ -108,7 +102,14 @@ class _GuestState extends State<Guest> {
           ? SafeArea(
               child: Scaffold(
               body: Center(
-                  child: Text("Loading", style: TextStyle(fontSize: 30))),
+                child: Image.asset(
+                  width: 200, // Définir la largeur de l'image
+                  height: 200, // Définir la hauteur de l'image
+                  fit: BoxFit
+                      .cover, // Redimensionner l'image pour remplir le conteneur
+                  'assets/images/Loading.jpg',
+                ),
+              ),
             ))
           : _widget.elementAt(index),
     );

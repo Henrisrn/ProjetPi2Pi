@@ -36,12 +36,8 @@ class _HomeState extends State<Home> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.grey[700],
-        appBar: AppBar(
-          backgroundColor: Colors.grey[700],
-          elevation: 0,
-        ),
         bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Colors.grey[500],
+          backgroundColor: Colors.transparent,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               backgroundColor: Colors.grey[700],

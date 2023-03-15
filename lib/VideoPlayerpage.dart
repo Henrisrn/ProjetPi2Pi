@@ -34,9 +34,6 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Video Player'),
-      ),
       body: _controller!.value.isInitialized
           ? GestureDetector(
               onTap: () {

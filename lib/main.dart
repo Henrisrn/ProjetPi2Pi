@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:projetpix/Guest.dart';
 import 'package:projetpix/Home.dart';
 import 'package:projetpix/Lecteurvideo.dart';
-import 'package:projetpix/Test.dart';
 import 'package:projetpix/Tiktokpage.dart';
 
 void main() async {

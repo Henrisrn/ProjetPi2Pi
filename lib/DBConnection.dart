@@ -4,37 +4,37 @@ import 'package:mongo_dart/mongo_dart.dart' show Db, DbCollection;
 
 class DBConnection {
   List<String> aa = [];
-  List<List<String>> ba = [];
+  List<Map<String, String>> ba = [];
   DBConnection(List<String> a) {
     aa = a;
   }
-  Future<List<List<String>>> get dbconnect async {
-    /*var db = await Db.create(
-        "mongodb+srv://test:test@cluster0.pfcsyrs.mongodb.net/Phraseapplication?retryWrites=true&w=majority");
+  Future<List<Map<String, String>>> get dbconnect async {
+    var db = await Db.create(
+        "mongodb+srv://test:test@cluster0.pfcsyrs.mongodb.net/LeoSmartAss?retryWrites=true&w=majority");
 
     await db.open();
     inspect(db);
     print("Connected to db");
-    List<List<String>> res = [];
+    List<Map<String, String>> res = [];
 
     for (int i = 0; i < aa.length; i++) {
       var collection = db.collection(aa.elementAt(i));
-      List<String> sortie = [];
+      Map<String, String> sortie = {};
       var information = await collection.find().toList();
       print(information);
       for (var i in information) {
         print(i);
-        sortie.add(i["phrase"]);
+        Map<String, String> sortie = {};
+        sortie["Domaine"] = i["Domaine"];
+        sortie["Titrecours"] = i["Titrecours"];
+        sortie["Contenue"] = i["Contenue"];
+        sortie["Imagelien1"] = i["Imagelien1"];
+        sortie["Imagelien2"] = i["Imagelien2"];
+        res.add(sortie);
       }
-      res.add(sortie);
     }
     List<String> collec = [
-      "Cestun10mais",
-      "Action",
-      "Verite",
-      "Jenaijamais",
-      "Quipourrait",
-      "Cap"
+      "Cours",
     ];
     /*var collection = db.collection("Cestun10mais");
     await collection.insertMany([
@@ -51,8 +51,8 @@ class DBConnection {
     // or Standard way
     await db.close();
     ba = res;
-    return res;*/
-    List<List<String>> res = [];
     return res;
+    //List<List<String>> res = [];
+    //return res;
   }
 }

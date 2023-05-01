@@ -76,15 +76,15 @@ class _TakeVideoPageState extends State<TakeVideoPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey[700],
+        backgroundColor: Color(0xFF43726B),
         elevation: 0,
       ),
-      backgroundColor: Colors.grey[700],
+      backgroundColor: Color(0xFF43726B),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.grey[500],
+        elevation: 0,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            backgroundColor: Colors.grey[700],
+            backgroundColor: Colors.white,
             icon: Icon(
               Icons.home,
             ),
@@ -108,6 +108,8 @@ class _TakeVideoPageState extends State<TakeVideoPage> {
           ),
         ],
         currentIndex: _selectedIndex,
+        selectedItemColor: Color(0xFF43726B), // Vert
+        unselectedItemColor: Color.fromARGB(100, 147, 167, 163), // Blanc
         onTap: _onItemTappedd,
       ),
       body: _videoFile == null
@@ -131,7 +133,7 @@ class _TakeVideoPageState extends State<TakeVideoPage> {
                     color: Colors.black,
                     size: 30,
                   ),
-                  backgroundColor: Colors.grey[300],
+                  backgroundColor: Color.fromARGB(255, 234, 175, 58),
                   elevation: 10,
                 ),
               ],
@@ -152,7 +154,7 @@ class _TakeVideoPageState extends State<TakeVideoPage> {
                   child: _isPlaying
                       ? Container()
                       : Icon(Icons.play_arrow,
-                          size: 100.0, color: Colors.white),
+                          size: 50, color: Color.fromARGB(255, 234, 175, 58)),
                 ),
               ],
             ),
@@ -160,7 +162,12 @@ class _TakeVideoPageState extends State<TakeVideoPage> {
           ? null
           : FloatingActionButton(
               onPressed: _getVideo,
-              child: Icon(Icons.video_call),
+              backgroundColor: Color.fromARGB(255, 57, 107, 99),
+              elevation: 10,
+              child: Icon(
+                Icons.video_call,
+                color: Color.fromARGB(255, 234, 175, 58),
+              ),
             ),
     );
   }

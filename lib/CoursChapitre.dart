@@ -53,21 +53,19 @@ class _CoursChapitreState extends State<CoursChapitre> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            backgroundColor: Colors.grey[700],
             appBar: AppBar(
               title: Center(
                   child: Text(
                 widget.cours[widget.cours.length - 1],
-                style: TextStyle(fontSize: 40),
               )),
-              backgroundColor: Colors.grey[700],
-              elevation: 0,
+              backgroundColor: Color.fromARGB(255, 234, 175, 58),
+              elevation: 5,
             ),
             bottomNavigationBar: BottomNavigationBar(
-              backgroundColor: Colors.grey[200],
+              elevation: 0,
               items: <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
-                  backgroundColor: Colors.grey[700],
+                  backgroundColor: Colors.white,
                   icon: Icon(
                     Icons.home,
                   ),
@@ -91,8 +89,11 @@ class _CoursChapitreState extends State<CoursChapitre> {
                 ),
               ],
               currentIndex: _selectedIndex,
+              selectedItemColor: Color(0xFF43726B), // Vert
+              unselectedItemColor: Color.fromARGB(100, 147, 167, 163), // Blanc
               onTap: _onItemTapped,
             ),
+            backgroundColor: Color(0xFF43726B),
             body: SingleChildScrollView(
                 physics: AlwaysScrollableScrollPhysics(),
                 child: Column(children: [

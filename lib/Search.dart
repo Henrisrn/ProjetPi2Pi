@@ -36,6 +36,17 @@ class _SearchState extends State<Search> {
     "History",
     "Geography"
   ];
+  List<String> listeImage = [
+    'assets/images/Video1.jpg',
+    'assets/images/Video2.jpg',
+    'assets/images/Video3.jpg',
+    'assets/images/Video4.jpg',
+    'assets/images/Video5.jpg',
+    'assets/images/Video6.jpg',
+    'assets/images/Video7.jpg',
+    'assets/images/Video8.jpg',
+  ];
+
   String _selectedSubject = "";
 
   TextEditingController _searchController = TextEditingController();
@@ -59,16 +70,16 @@ class _SearchState extends State<Search> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            backgroundColor: Colors.grey[700],
+            backgroundColor: Color(0xFF43726B),
             appBar: AppBar(
-              backgroundColor: Colors.grey[700],
+              backgroundColor: Color(0xFF43726B),
               elevation: 0,
             ),
             bottomNavigationBar: BottomNavigationBar(
-              backgroundColor: Colors.grey[500],
+              elevation: 0,
               items: <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
-                  backgroundColor: Colors.grey[700],
+                  backgroundColor: Colors.white,
                   icon: Icon(
                     Icons.home,
                   ),
@@ -92,6 +103,8 @@ class _SearchState extends State<Search> {
                 ),
               ],
               currentIndex: _selectedIndex,
+              selectedItemColor: Color(0xFF43726B), // Vert
+              unselectedItemColor: Color.fromARGB(100, 147, 167, 163), // Blanc
               onTap: _onItemTapped,
             ),
             body: OrientationBuilder(
@@ -102,7 +115,7 @@ class _SearchState extends State<Search> {
                 child: Column(
                   children: [
                     Text(
-                      "Choose your chapter",
+                      "Choisis ton chapitre",
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -112,69 +125,50 @@ class _SearchState extends State<Search> {
                     SizedBox(
                       height: 50,
                     ),
-                    Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          height: 70,
-                          child: ListView(
-                            scrollDirection: Axis.horizontal,
-                            children: _subjects.map((subject) {
-                              return ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                    _selectedSubject = subject;
-                                    if (_selectedSubject == "") {
-                                      _filteredChapters = _chapters;
-                                    } else {
-                                      _filteredChapters = _chapters
-                                          .where((chapter) =>
-                                              chapter.subject ==
-                                              _selectedSubject)
-                                          .toList();
-                                    }
-                                  });
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  padding: EdgeInsets.all(2),
-                                  primary: _selectedSubject == subject
-                                      ? Colors.blue
-                                      : Colors.green,
-                                ),
-                                child: Text(
-                                  subject,
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              );
-                            }).toList(),
-                          ),
-                        )),
                     Container(
-                      height: 300,
-                      child: SizedBox(
-                        child: ListView.builder(
-                          itemCount: _filteredChapters.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return ListTile(
-                              title: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                    padding: EdgeInsets.all(2),
-                                    elevation: 0,
-                                    primary: Colors.grey[700]),
-                                onPressed: () {
-                                  widget.onChangedStep(9, [
-                                    _filteredChapters[index].title,
-                                    _filteredChapters[index].subject
-                                  ]);
-                                },
-                                child: Text(
+                      height: 500,
+                      child: GridView.builder(
+                        itemCount: _filteredChapters.length,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 10,
+                          mainAxisSpacing: 10,
+                          childAspectRatio:
+                              1, // Ajustez la valeur pour modifier la taille des éléments
+                        ),
+                        itemBuilder: (BuildContext context, int index) {
+                          return GestureDetector(
+                            onTap: () {
+                              widget.onChangedStep(9, [
+                                _filteredChapters[index].title,
+                                _filteredChapters[index].subject
+                              ]);
+                            },
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                Image.asset(
+                                  listeImage[index %
+                                      listeImage
+                                          .length], // Utiliser l'image correspondante
+                                  width: double.infinity, // Largeur de l'image
+                                  height: double.infinity, // Hauteur de l'image
+                                  fit: BoxFit.cover,
+                                ),
+                                Container(
+                                  color: Colors.black.withOpacity(
+                                      0.5), // Ajouter un fond légèrement transparent
+                                ),
+                                Text(
                                   _filteredChapters[index].title,
+                                  textAlign: TextAlign.center,
                                   style: TextStyle(
                                       color: Colors.white, fontSize: 20),
                                 ),
-                              ),
-                            );
-                          },
-                        ),
+                              ],
+                            ),
+                          );
+                        },
                       ),
                     ),
                   ],

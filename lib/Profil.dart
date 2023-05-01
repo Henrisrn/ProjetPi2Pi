@@ -24,6 +24,40 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   int _selectedIndex = 0;
   int index = 0;
+  List<String> videoTitles = [
+    'Nom de la vidéo 1',
+    'Nom de la vidéo 2',
+    'Nom de la vidéo 3',
+    'Nom de la vidéo 4',
+    'Nom de la vidéo 5',
+    'Nom de la vidéo 6',
+    'Nom de la vidéo 7',
+    'Nom de la vidéo 8',
+  ];
+
+  List<String> videoImages = [
+    'assets/images/Video1.jpg',
+    'assets/images/Video2.jpg',
+    'assets/images/Video3.jpg',
+    'assets/images/Video4.jpg',
+    'assets/images/Video5.jpg',
+    'assets/images/Video6.jpg',
+    'assets/images/Video7.jpg',
+    'assets/images/Video8.jpg',
+  ];
+
+  List<String> videoPaths = [
+    'assets/videos/Video1.mp4',
+    'assets/videos/Video2.mp4',
+    'assets/videos/Video3.mp4',
+    'assets/videos/Video4.mp4',
+    'assets/videos/Video5.mp4',
+    'assets/videos/Video6.mp4',
+    'assets/videos/Video7.mp4',
+    'assets/videos/Video8.mp4',
+    'assets/videos/Video9.mp4',
+  ];
+
   double padingvideo = 13;
   void _onItemTapped(int index) {
     setState(() => {
@@ -36,7 +70,7 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            backgroundColor: Colors.grey[700],
+            backgroundColor: Color(0xFF43726B),
             appBar: AppBar(
               title: Text('Mon Profil'),
               actions: <Widget>[
@@ -55,14 +89,14 @@ class _ProfileState extends State<Profile> {
                   },
                 ),
               ],
-              backgroundColor: Colors.grey[700],
+              backgroundColor: Color.fromARGB(255, 234, 175, 58),
               elevation: 0,
             ),
             bottomNavigationBar: BottomNavigationBar(
-              backgroundColor: Colors.grey[200],
+              elevation: 0,
               items: <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
-                  backgroundColor: Colors.grey[700],
+                  backgroundColor: Colors.white,
                   icon: Icon(
                     Icons.home,
                   ),
@@ -86,6 +120,8 @@ class _ProfileState extends State<Profile> {
                 ),
               ],
               currentIndex: _selectedIndex,
+              selectedItemColor: Color(0xFF43726B), // Vert
+              unselectedItemColor: Color.fromARGB(100, 147, 167, 163), // Blanc
               onTap: _onItemTapped,
             ),
             body: OrientationBuilder(
@@ -95,265 +131,104 @@ class _ProfileState extends State<Profile> {
                 children: <Widget>[
                   Padding(
                     padding: EdgeInsets.all(16),
-                    child: Text(
-                      'Mon Pseudo',
-                      style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(16),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
                         Text(
-                          'Points : 3035',
-                          style: TextStyle(fontSize: 18, color: Colors.white),
+                          'Mon Pseudo',
+                          style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Abonnés : ',
+                                    style: TextStyle(
+                                        fontSize: 18, color: Colors.white),
+                                  ),
+                                  TextSpan(
+                                    text: '250',
+                                    style: TextStyle(
+                                        fontSize: 22,
+                                        fontWeight: FontWeight.bold,
+                                        color:
+                                            Color.fromARGB(255, 234, 175, 58)),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Abonnements : ',
+                                    style: TextStyle(
+                                        fontSize: 18, color: Colors.white),
+                                  ),
+                                  TextSpan(
+                                    text: '100',
+                                    style: TextStyle(
+                                        fontSize: 22,
+                                        fontWeight: FontWeight.bold,
+                                        color:
+                                            Color.fromARGB(255, 234, 175, 58)),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
-                  ),
-                  SizedBox(
-                    height: 30,
                   ),
                   Expanded(
                     child: ListView(
                       padding: EdgeInsets.all(6),
                       children: <Widget>[
-                        ListTile(
-                            leading: Image.asset(
-                              width: 100, // Définir la largeur de l'image
-                              height: 100, // Définir la hauteur de l'image
-                              fit: BoxFit
-                                  .cover, // Redimensionner l'image pour remplir le conteneur
-                              'assets/images/Video1.jpg',
-                            ),
-                            title: Text(
-                              style:
-                                  TextStyle(fontSize: 16, color: Colors.white),
-                              'Nom de la vidéo 1',
-                            ),
+                        for (var i = 0; i < videoTitles.length; i++) ...[
+                          GestureDetector(
                             onTap: () {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => VideoPlayerPage(
-                                          pathvideo: 'assets/videos/Video1.mp4',
+                                          pathvideo: videoPaths[i],
                                         )),
                               );
-                            }),
-                        SizedBox(
-                          height: padingvideo,
-                        ),
-                        ListTile(
-                          leading: Image.asset(
-                            width: 100, // Définir la largeur de l'image
-                            height: 100, // Définir la hauteur de l'image
-                            fit: BoxFit
-                                .cover, // Redimensionner l'image pour remplir le conteneur
-                            'assets/images/Video2.jpg',
+                            },
+                            child: Stack(
+                              children: [
+                                Image.asset(
+                                  videoImages[i],
+                                  width: double.infinity, // Largeur de l'image
+                                  height: 100, // Hauteur de l'image
+                                  fit: BoxFit.cover, // Remplir le conteneur
+                                ),
+                                Container(
+                                  height: 100,
+                                  color: Colors.black.withOpacity(0.5),
+                                ),
+                                Positioned(
+                                  top: 40, // Positionner le titre
+                                  left: 16,
+                                  child: Text(
+                                    videoTitles[i],
+                                    style: TextStyle(
+                                        fontSize: 20, color: Colors.white),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                          title: Text(
-                            style: TextStyle(fontSize: 16, color: Colors.white),
-                            'Nom de la vidéo 1',
-                          ),
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => VideoPlayerPage(
-                                        pathvideo: 'assets/videos/Video2.mp4',
-                                      )),
-                            );
-                            // TODO: Navigate to video detail page
-                          },
-                        ),
-                        SizedBox(
-                          height: padingvideo,
-                        ),
-                        ListTile(
-                          leading: Image.asset(
-                            width: 100, // Définir la largeur de l'image
-                            height: 100, // Définir la hauteur de l'image
-                            fit: BoxFit
-                                .cover, // Redimensionner l'image pour remplir le conteneur
-                            'assets/images/Video3.jpg',
-                          ),
-                          title: Text(
-                            style: TextStyle(fontSize: 16, color: Colors.white),
-                            'Nom de la vidéo 1',
-                          ),
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => VideoPlayerPage(
-                                        pathvideo: 'assets/videos/Video3.mp4',
-                                      )),
-                            );
-                          },
-                        ),
-                        SizedBox(
-                          height: padingvideo,
-                        ),
-                        ListTile(
-                          leading: Image.asset(
-                            width: 100, // Définir la largeur de l'image
-                            height: 100, // Définir la hauteur de l'image
-                            fit: BoxFit
-                                .cover, // Redimensionner l'image pour remplir le conteneur
-                            'assets/images/Video4.jpg',
-                          ),
-                          title: Text(
-                            style: TextStyle(fontSize: 16, color: Colors.white),
-                            'Nom de la vidéo 1',
-                          ),
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => VideoPlayerPage(
-                                        pathvideo: 'assets/videos/Video4.mp4',
-                                      )),
-                            );
-                            // TODO: Navigate to video detail page
-                          },
-                        ),
-                        SizedBox(
-                          height: padingvideo,
-                        ),
-                        ListTile(
-                          leading: Image.asset(
-                            width: 100, // Définir la largeur de l'image
-                            height: 100, // Définir la hauteur de l'image
-                            fit: BoxFit
-                                .cover, // Redimensionner l'image pour remplir le conteneur
-                            'assets/images/Video5.jpg',
-                          ),
-                          title: Text(
-                            style: TextStyle(fontSize: 16, color: Colors.white),
-                            'Nom de la vidéo 1',
-                          ),
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => VideoPlayerPage(
-                                        pathvideo: 'assets/videos/Video5.mp4',
-                                      )),
-                            );
-                            // TODO: Navigate to video detail page
-                          },
-                        ),
-                        SizedBox(
-                          height: padingvideo,
-                        ),
-                        ListTile(
-                          leading: Image.asset(
-                            width: 100, // Définir la largeur de l'image
-                            height: 100, // Définir la hauteur de l'image
-                            fit: BoxFit
-                                .cover, // Redimensionner l'image pour remplir le conteneur
-                            'assets/images/Video6.jpg',
-                          ),
-                          title: Text(
-                            style: TextStyle(fontSize: 16, color: Colors.white),
-                            'Nom de la vidéo 1',
-                          ),
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => VideoPlayerPage(
-                                        pathvideo: 'assets/videos/Video6.mp4',
-                                      )),
-                            );
-                            // TODO: Navigate to video detail page
-                          },
-                        ),
-                        SizedBox(
-                          height: padingvideo,
-                        ),
-                        ListTile(
-                          leading: Image.asset(
-                            width: 100, // Définir la largeur de l'image
-                            height: 100, // Définir la hauteur de l'image
-                            fit: BoxFit
-                                .cover, // Redimensionner l'image pour remplir le conteneur
-                            'assets/images/Video7.jpg',
-                          ),
-                          title: Text(
-                            style: TextStyle(fontSize: 16, color: Colors.white),
-                            'Nom de la vidéo 1',
-                          ),
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => VideoPlayerPage(
-                                        pathvideo: 'assets/videos/Video7.mp4',
-                                      )),
-                            );
-                            // TODO: Navigate to video detail page
-                          },
-                        ),
-                        SizedBox(
-                          height: padingvideo,
-                        ),
-                        ListTile(
-                          leading: Image.asset(
-                            width: 100, // Définir la largeur de l'image
-                            height: 100, // Définir la hauteur de l'image
-                            fit: BoxFit
-                                .cover, // Redimensionner l'image pour remplir le conteneur
-                            'assets/images/Video8.jpg',
-                          ),
-                          title: Text(
-                            style: TextStyle(fontSize: 16, color: Colors.white),
-                            'Nom de la vidéo 1',
-                          ),
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => VideoPlayerPage(
-                                        pathvideo: 'assets/videos/Video8.mp4',
-                                      )),
-                            );
-                            // TODO: Navigate to video detail page
-                          },
-                        ),
-                        SizedBox(
-                          height: padingvideo,
-                        ),
-                        ListTile(
-                          leading: Image.asset(
-                            width: 100, // Définir la largeur de l'image
-                            height: 100, // Définir la hauteur de l'image
-                            fit: BoxFit
-                                .cover, // Redimensionner l'image pour remplir le conteneur
-                            'assets/images/Video8.jpg',
-                          ),
-                          title: Text(
-                            style: TextStyle(fontSize: 16, color: Colors.white),
-                            'Nom de la vidéo 1',
-                          ),
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => VideoPlayerPage(
-                                        pathvideo: 'assets/videos/Video9.mp4',
-                                      )),
-                            );
-                            // TODO: Navigate to video detail page
-                          },
-                        ),
-                        SizedBox(
-                          height: padingvideo,
-                        ),
+                          SizedBox(height: padingvideo),
+                        ],
                       ],
                     ),
                   ),

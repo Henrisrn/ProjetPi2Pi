@@ -35,12 +35,11 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.grey[700],
         bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Colors.transparent,
+          elevation: 0,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              backgroundColor: Colors.grey[700],
+              backgroundColor: Color(0xFFFFFF),
               icon: Icon(
                 Icons.home,
               ),
@@ -64,6 +63,8 @@ class _HomeState extends State<Home> {
             ),
           ],
           currentIndex: _selectedIndex,
+          selectedItemColor: Color(0xFF43726B), // Vert
+          unselectedItemColor: Color.fromARGB(100, 147, 167, 163), // Blanc
           onTap: _onItemTappedd,
         ),
         body: TikTokClonePage(),

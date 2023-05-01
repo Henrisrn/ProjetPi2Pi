@@ -107,7 +107,7 @@ class _GuestState extends State<Guest> {
                   height: 200, // Définir la hauteur de l'image
                   fit: BoxFit
                       .cover, // Redimensionner l'image pour remplir le conteneur
-                  'assets/images/Loading.jpg',
+                  'assets/images/Loading.png',
                 ),
               ),
             ))

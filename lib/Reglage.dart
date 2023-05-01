@@ -31,17 +31,17 @@ class _ReglageState extends State<Reglage> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      backgroundColor: Colors.grey[700],
+      backgroundColor: Color(0xFF43726B),
       appBar: AppBar(
         title: Text("Reglage"),
-        backgroundColor: Colors.grey[700],
-        elevation: 0,
+        backgroundColor: Color.fromARGB(255, 234, 175, 58),
+        elevation: 5,
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.grey[500],
+        elevation: 0,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            backgroundColor: Colors.grey[700],
+            backgroundColor: Colors.white,
             icon: Icon(
               Icons.home,
             ),
@@ -65,6 +65,8 @@ class _ReglageState extends State<Reglage> {
           ),
         ],
         currentIndex: _selectedIndex,
+        selectedItemColor: Color(0xFF43726B), // Vert
+        unselectedItemColor: Color.fromARGB(100, 147, 167, 163), // Blanc
         onTap: _onItemTappedd,
       ),
       body: ListView(

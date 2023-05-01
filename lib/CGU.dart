@@ -26,7 +26,7 @@ class _CGUState extends State<CGU> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            backgroundColor: Colors.grey[700],
+            backgroundColor: Color(0xFF43726B),
             appBar: AppBar(
               title: Text('CGU'),
               actions: <Widget>[
@@ -45,14 +45,14 @@ class _CGUState extends State<CGU> {
                   },
                 ),
               ],
-              backgroundColor: Colors.grey[700],
-              elevation: 0,
+              backgroundColor: Color.fromARGB(255, 234, 175, 58),
+              elevation: 5,
             ),
             bottomNavigationBar: BottomNavigationBar(
-              backgroundColor: Colors.grey[200],
+              elevation: 0,
               items: <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
-                  backgroundColor: Colors.grey[700],
+                  backgroundColor: Colors.white,
                   icon: Icon(
                     Icons.home,
                   ),
@@ -76,6 +76,8 @@ class _CGUState extends State<CGU> {
                 ),
               ],
               currentIndex: _selectedIndex,
+              selectedItemColor: Color(0xFF43726B), // Vert
+              unselectedItemColor: Color.fromARGB(100, 147, 167, 163), // Blanc
               onTap: _onItemTapped,
             ),
             body: SingleChildScrollView(
@@ -125,6 +127,6 @@ En cas de litige relatif à l'interprétation ou à l'exécution des présentes 
 
 Fait à Bougival , le 01/04/2023.
 """,
-                    style: TextStyle(color: Colors.white)))));
+                    style: TextStyle(color: Colors.white, fontSize: 20)))));
   }
 }

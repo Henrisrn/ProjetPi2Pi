@@ -26,7 +26,7 @@ class _TermsState extends State<Terms> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            backgroundColor: Colors.grey[700],
+            backgroundColor: Color(0xFF43726B),
             appBar: AppBar(
               title: Text('Terms of Service'),
               actions: <Widget>[
@@ -45,14 +45,14 @@ class _TermsState extends State<Terms> {
                   },
                 ),
               ],
-              backgroundColor: Colors.grey[700],
+              backgroundColor: Color.fromARGB(255, 234, 175, 58),
               elevation: 0,
             ),
             bottomNavigationBar: BottomNavigationBar(
-              backgroundColor: Colors.grey[200],
+              elevation: 0,
               items: <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
-                  backgroundColor: Colors.grey[700],
+                  backgroundColor: Colors.white,
                   icon: Icon(
                     Icons.home,
                   ),
@@ -76,17 +76,14 @@ class _TermsState extends State<Terms> {
                 ),
               ],
               currentIndex: _selectedIndex,
+              selectedItemColor: Color(0xFF43726B), // Vert
+              unselectedItemColor: Color.fromARGB(100, 147, 167, 163), // Blanc
               onTap: _onItemTapped,
             ),
-            body: Container(
-                child: Center(
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                  SingleChildScrollView(
-                      physics: AlwaysScrollableScrollPhysics(),
-                      child: Text(
-                        """Notre application a été créée dans le but de promouvoir l'éducation accessible à tous. En utilisant notre application, vous acceptez les conditions d'utilisation suivantes :
+            body: SingleChildScrollView(
+                physics: AlwaysScrollableScrollPhysics(),
+                child: Text(
+                  """Notre application a été créée dans le but de promouvoir l'éducation accessible à tous. En utilisant notre application, vous acceptez les conditions d'utilisation suivantes :
 
 Contenu : Tout le contenu de l'application est la propriété de notre équipe et ne peut être reproduit, copié ou utilisé à des fins commerciales sans notre autorisation préalable.
 
@@ -100,8 +97,7 @@ Modifications : Nous nous réservons le droit de modifier les conditions d'utili
 
 En utilisant notre application, vous acceptez ces conditions d'utilisation. Si vous n'êtes pas d'accord avec ces conditions, veuillez ne pas utiliser notre application.
 """,
-                        style: TextStyle(color: Colors.white),
-                      ))
-                ])))));
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ))));
   }
 }

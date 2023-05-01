@@ -67,9 +67,10 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
     }
 
     return Scaffold(
-      backgroundColor: Colors.grey[700],
+      backgroundColor: Color(0xFF43726B),
       appBar: AppBar(
-        backgroundColor: Colors.grey[700],
+        backgroundColor: Color.fromARGB(255, 234, 175, 58),
+        title: Text('Lecteur vidéo'),
       ),
       body: SafeArea(
         child: GestureDetector(
@@ -107,10 +108,12 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
+                    color: Color.fromARGB(255, 44, 86, 80),
                     icon: Icon(_isMuted ? Icons.volume_off : Icons.volume_up),
                     onPressed: _toggleMute,
                   ),
                   IconButton(
+                    color: Color.fromARGB(255, 44, 86, 80),
                     icon: Icon(_isFullScreen
                         ? Icons.fullscreen_exit
                         : Icons.fullscreen),
@@ -126,7 +129,7 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
                   _controller!,
                   allowScrubbing: true,
                   colors: VideoProgressColors(
-                    playedColor: Colors.red,
+                    playedColor: Color.fromARGB(255, 234, 175, 58),
                     backgroundColor: Colors.white,
                   ),
                   padding: EdgeInsets.all(10),
